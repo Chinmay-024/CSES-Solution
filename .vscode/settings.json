@@ -3,6 +3,13 @@
         "iostream": "cpp",
         "vector": "cpp",
         "numeric": "cpp",
-        "cmath": "cpp"
-    }
+        "cmath": "cpp",
+        "chrono": "cpp",
+        "span": "cpp",
+        "deque": "cpp",
+        "string": "cpp",
+        "random": "cpp",
+        "*.tcc": "cpp"
+    },
+    "C_Cpp.errorSquiggles": "enabled"
 }
