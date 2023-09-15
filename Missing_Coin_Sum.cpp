@@ -15,39 +15,32 @@ vector<ll> fact(M, 1);
 const int N = 1e5 + 7;
 const int MOD = 1e9 + 7;
 
+ll n;
 int main()
 {
     // added the two lines below
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    ll n, m, k;
-    cin >> n >> m >> k;
+    cin >> n;
     vi a(n);
-    vi b(m);
-    rep(i, 0, n) cin >> a[i];
-    rep(i, 0, m) cin >> b[i];
+    rep(i, 0, n)
+            cin >>
+        a[i];
     sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
-    int q = 0;
-    ll ans = 0;
-    int i = 0, j = 0;
-    while (i < n && j < m)
+    ll ans = 1;
+    rep(i, 0, n)
     {
-        if (abs(a[i] - b[j]) <= k)
+        if (a[i] > ans)
         {
-            i++;
-            j++;
-            ans++;
-        }
-        else if (a[i] - b[j] > k)
-        {
-            j++;
+            cout << ans;
+            return 0;
         }
         else
         {
-            i++;
+            ans += a[i];
         }
     }
-    cout << ans << endl;
+    cout << ans;
+
     return 0;
 }

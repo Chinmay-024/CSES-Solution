@@ -20,34 +20,27 @@ int main()
     // added the two lines below
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    ll n, m, k;
-    cin >> n >> m >> k;
+    ll n;
+    cin >> n;
     vi a(n);
-    vi b(m);
-    rep(i, 0, n) cin >> a[i];
-    rep(i, 0, m) cin >> b[i];
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
-    int q = 0;
-    ll ans = 0;
-    int i = 0, j = 0;
-    while (i < n && j < m)
+    ll sum = 0ll;
+    ll sum2 = 0ll;
+    ll ans = 0ll;
+    ll ans2 = 0ll;
+    rep(i, 0, n)
     {
-        if (abs(a[i] - b[j]) <= k)
-        {
-            i++;
-            j++;
-            ans++;
-        }
-        else if (a[i] - b[j] > k)
-        {
-            j++;
-        }
-        else
-        {
-            i++;
-        }
+        int x;
+        cin >> x;
+        a[i] = x;
     }
-    cout << ans << endl;
+    sort(a.begin(), a.end());
+    ans = a[n / 2];
+    ans2 = a[n / 2 - 1];
+    rep(i, 0, n)
+    {
+        sum += abs(ans - a[i]);
+        sum2 += abs(ans2 - a[i]);
+    }
+    cout << min(sum, sum2);
     return 0;
 }
