@@ -15,13 +15,6 @@ vector<ll> fact(M, 1);
 const int N = 1e5 + 7;
 const int MOD = 1e9 + 7;
 
-//  for (ll i = 2; i < M; i++)
-//    fact[i] = (fact[i - 1] * i) % MOD;
-// cout << fixed << setprecision(10);
-// vvi vec( n , vi (m, 0));
-// sort(arr, arr + n);
-//__gcd(m, n)
-
 ll power(ll x, ll n)
 {
     ll ans = 1;

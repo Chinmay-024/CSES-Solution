@@ -27,6 +27,7 @@ int main()
         fill(dp[0], dp[0] + 101, 1);
     }
     else
+    
     {
         dp[0][arr[0]] = 1;
     }

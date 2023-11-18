@@ -43,9 +43,9 @@ void push(ll node)
 
 void update(ll node, ll st, ll en, ll low, ll high, ll val)
 {
-    if (st > high || en < low)
+    if (high < low)
         return;
-    if (st >= low && en <= high)
+    if (st == low && en == high)
     {
         Lazy[node] += val;
         Tree[node] += val;
@@ -54,16 +54,14 @@ void update(ll node, ll st, ll en, ll low, ll high, ll val)
     {
         push(node);
         ll mid = (st + en) / 2;
-        update(2 * node, st, mid, low, high, val);
-        update(2 * node + 1, mid + 1, en, low, high, val);
+        update(2 * node, st, mid, low, min(mid, high), val);
+        update(2 * node + 1, mid + 1, en, max(low, mid + 1), high, val);
         Tree[node] = Tree[2 * node + 1] + Tree[2 * node];
     }
 }
 
 ll query(ll node, ll st, ll en, ll idx)
 {
-    if (st > idx || en < idx)
-        return 0;
     if (st == en && st == idx)
         return Tree[node];
     else

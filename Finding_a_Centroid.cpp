@@ -38,12 +38,14 @@ void dfs2(int x, int p, vi adj[])
     if (p != -1)
     {
         ans += n - num[x] - 1;
-        num[x] += ans;
+        // num[x] += ans;
         if (ans > n / 2)
             tmp = false;
     }
     for (auto i : adj[x])
     {
+    // cout << "\n";
+    for (auto i : adj[x])
         if (i != p)
         {
             if (num[i] + 1 > n / 2)

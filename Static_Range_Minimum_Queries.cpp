@@ -33,13 +33,15 @@ void build(ll node, ll st, ll en)
 
 ll query(ll node, ll st, ll en, ll a, ll b)
 {
-    if (st > b || en < a)
+    // if (st > b || en < a)
+    //     return INT_MAX;
+    if (a > b)
         return INT_MAX;
-    if (st >= a && en <= b)
+    if (st == a && en == b)
         return Tree[node];
     ll mid = (st + en) / 2;
-    ll left = query(2 * node, st, mid, a, b);
-    ll right = query(2 * node + 1, mid + 1, en, a, b);
+    ll left = query(2 * node, st, mid, a, min(b, mid));
+    ll right = query(2 * node + 1, mid + 1, en, max(a, mid + 1), b);
     return min(left, right);
 }
 

@@ -44,14 +44,6 @@ int main()
                 dp[i][j] -= dp[i - 1][j - 1];
         }
     }
-    // rep(i, 0, n)
-    // {
-    //     rep(j, 0, n)
-    //     {
-    //         cout << dp[i][j] << " ";
-    //     }
-    //     cout << "\n";
-    // }
     rep(j, 0, q)
     {
         ll y1, x1, y2, x2;
@@ -66,18 +58,14 @@ int main()
         if (y1 > 0)
         {
             ans -= dp[x2][y1 - 1];
-            // cout << x2 << "-" << y1 - 1 << " ";
-            // cout << ans << " ";
         }
         if (x1 > 0)
         {
             ans -= dp[x1 - 1][y2];
-            // cout << ans << " ";
         }
         if (x1 > 0 && y1 > 0)
         {
             ans += dp[x1 - 1][y1 - 1];
-            // cout << ans << " ";
         }
         cout << ans << "\n";
     }
